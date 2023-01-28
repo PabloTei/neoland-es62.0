@@ -268,6 +268,61 @@ const searchMutations = (name_mutation) => {
 const alinesAndMutations = {...searchAliens("Cucushumushu"), ...searchMutations("Porompompero")};
 console.log(alinesAndMutations);
 
+// 7.1
 
+const exams = [
+    {name: 'Yuyu Cabeza Crack', score: 5}, 
+    {name: 'Maria Aranda Jimenez', score: 1}, 
+    {name: 'Cristóbal Martínez Lorenzo', score: 6}, 
+    {name: 'Mercedez Regrera Brito', score: 7},
+    {name: 'Pamela Anderson', score: 3},
+    {name: 'Enrique Perez Lijó', score: 6},
+    {name: 'Pedro Benitez Pacheco', score: 8},
+    {name: 'Ayumi Hamasaki', score: 4},
+    {name: 'Robert Kiyosaki', score: 2},
+    {name: 'Keanu Reeves', score: 10}
+];
 
+const result = () => {
+    return exams.reduce((acc, exam) => acc + exam.score, 0)
+}
+console.log(result());
 
+// 7.2
+
+const filterApproved = (nota) => {
+    return exams.filter((exam) => exam.score >= nota ? exam : 0)
+}
+const sumScoreApproved = (nota) => {
+    return filterApproved(nota).reduce((acc, exam) => acc + exam.score, 0);
+}
+console.log(sumScoreApproved(5));
+
+// 7.3
+
+const medScore = () => {
+    const totalScore = exams.reduce((acc, exam) => acc + exam.score, 0);
+    return totalScore / exams.length
+}
+console.log(medScore());
+
+// 8.1
+
+const videogames = [
+    {name: 'Final Fantasy VII', genders: ['RPG'], score: 9.5},
+    {name: 'Assasins Creed Valhala', genders: ['Aventura', 'RPG'], score: 4.5},
+    {name: 'The last of Us 2', genders: ['Acción', 'Aventura'], score: 9.8},
+    {name: 'Super Mario Bros', genders: ['Plataforma'], score: 8.5},
+    {name: 'Genshin Impact', genders: ['RPG', 'Aventura'], score: 7.5},
+    {name: 'Legend of Zelda: Breath of the wild', genders: ['RPG', 'La cosa más puto bonita que he visto nunca'], score: 10},
+]
+
+const filterGender = (gender) => { // creamos nuevo array mediante esta funcion segun el genero que le metamos a la funcion por parametro
+    return videogames.filter((videogame) => videogame.genders.includes(gender))
+}
+
+const medScoreGender = (gender) => { // creamos otra funcion para hacer la media del array nuevo creado por genero metido por parametro
+    const totalScoreGender = filterGender(gender).reduce((acc, videogame) => acc + videogame.score, 0)
+    return totalScoreGender;
+}
+console.log(medScoreGender("RPG"))
