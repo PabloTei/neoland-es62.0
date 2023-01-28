@@ -99,3 +99,119 @@ const colorsCopy2 = [...colors]; // Hago copia del array inicial para quitarle l
 const colorsCopy1 = [...colorsCopy2.splice(0, 1), ...colorsCopy2.splice(1, 4)]; // Realizo spread operator para quitar la posición 2
 console.log(colorsCopy1);
 console.log(colors); // Array inicial sin modificar
+
+// 4.1
+
+const users = [
+	{id: 1, name: 'Abel'},
+	{id:2, name: 'Julia'},
+	{id:3, name: 'Pedro'},
+	{id:4, name: 'Amanda'}
+];
+
+const arrayNames = users.map(user => user.name);
+console.log(arrayNames);
+
+// 4.2
+
+const users1 = [
+	{id: 1, name: 'Abel'},
+	{id:2, name: 'Julia'},
+	{id:3, name: 'Pedro'},
+	{id:4, name: 'Amanda'}
+];
+
+const arrayNamesA = users1.map(user => user.name);
+const newArrayNamesA = [];
+for (const name of arrayNamesA) {
+    if (name[0] === "A") {
+        newArrayNamesA.push("Anacleto")
+    } else {
+        newArrayNamesA.push(name);
+    }
+}
+console.log(newArrayNamesA);
+
+// 4.3
+
+const cities = [
+	{isVisited:true, name: 'Tokyo'}, 
+	{isVisited:false, name: 'Madagascar'},
+	{isVisited:true, name: 'Amsterdam'}, 
+	{isVisited:false, name: 'Seul'}
+];
+
+const citiesVisited = () => {
+    return cities.map((city) => city.isVisited ? `${city.name}: Visitado` : `${city.name}: No visitado`)
+}
+console.log(citiesVisited());
+
+// 5.1
+
+const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+
+const agesMayor18 = () => {
+    return ages.filter((age) => age > 18 ? age : 0)
+}
+console.log(agesMayor18());
+
+// 5.2
+
+const ages1 = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+
+const newArrayPar = () => {
+    return ages1.filter((age) => age %2 === 0 ? age : 0)
+}
+console.log(newArrayPar());
+
+
+// 5.3
+
+const streamers = [
+	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'}, 
+	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+];
+
+const gameMorePlay = () => {
+    return streamers.filter((streamer) => streamer.gameMorePlayed.toLowerCase() === "LEAGUE OF LEGENDS".toLowerCase() ? streamer.name : 0)
+}
+console.log(gameMorePlay());
+
+// 5.4
+
+const streamers1 = [
+	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
+	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+];
+
+const streamerIncudeU = () => {
+    return streamers1.filter((streamer) => streamer.name.includes("u") ? streamer : 0)
+}
+console.log(streamerIncudeU());
+
+// 5.5
+
+const streamers2 = [
+	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+	{name: 'Ibai', age: 24, gameMorePlayed: 'League of Legends'},
+	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+];
+
+const searchStreamers = () => {
+    const newArrayStreamersPlus35 = streamers2.filter((streamer) => streamer.gameMorePlayed.includes("Legends") ? streamer : 0);
+    for (const streamer of newArrayStreamersPlus35) {
+        if (streamer.age > 35) {
+            streamer.gameMorePlayed = streamer.gameMorePlayed.toUpperCase();
+        } 
+        else  {
+            streamer.gameMorePlayed;
+        }
+}
+return newArrayStreamersPlus35;
+}
+console.log(searchStreamers());
