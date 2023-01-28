@@ -215,3 +215,59 @@ const searchStreamers = () => {
 return newArrayStreamersPlus35;
 }
 console.log(searchStreamers());
+
+// 6.1
+
+const numbers = [32, 21, 63, 95, 100, 67, 43];
+
+const findNumber = (num) => {
+    if (numbers.includes(num)) {
+        return  numbers.find((number) => number === num);
+    } else {
+        return "Este número no se encuentra en la lista.";
+    }
+}
+console.log(findNumber(100));
+
+// 6.2
+
+const movies = [
+	{title: 'Madagascar', stars: 4.5, date: 2015},
+	{title: 'Origen', stars: 5, date: 2010},
+	{title: 'Your Name', stars: 5, date: 2016}
+];
+
+const findMovie2010 = (year) => {
+    return movies.find((movie) => movie.date === year ? movie : 0);
+}
+console.log(findMovie2010(2010));
+
+// 6.3
+
+const aliens = [
+	{name_alien: 'Zalamero', planet: 'Eden', age: 4029},
+	{name_alien: 'Paktu', planet: 'Andromeda', age: 32},
+	{name_alien: 'Cucushumushu', planet: 'Marte', age: 503021}
+];
+const mutations = [
+	{name_mutation: 'Porompompero', description: 'Hace que el alien pueda adquirir la habilidad de tocar el tambor'},
+	{name_mutation: 'Fly me to the moon', description: 'Permite volar, solo y exclusivamente a la luna'},
+	{name_mutation: 'Andando que es gerundio', description: 'Invoca a un señor mayor como Personal Trainer'}
+];
+
+const searchAliens = (name_alien) => {
+    const alien = aliens.find((alien) => alien.name_alien === name_alien);
+    return alien;
+}
+
+const searchMutations = (name_mutation) => {
+    const mutation = mutations.find((mutation) => mutation.name_mutation === name_mutation);
+    return mutation;
+}
+
+const alinesAndMutations = {...searchAliens("Cucushumushu"), ...searchMutations("Porompompero")};
+console.log(alinesAndMutations);
+
+
+
+
