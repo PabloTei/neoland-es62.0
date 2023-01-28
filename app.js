@@ -318,11 +318,11 @@ const videogames = [
 ]
 
 const filterGender = (gender) => { // creamos nuevo array mediante esta funcion segun el genero que le metamos a la funcion por parametro
-    return videogames.filter((videogame) => videogame.genders.includes(gender))
+    return videogames.filter((videogame) => videogame.genders.includes(gender));
 }
 
 const medScoreGender = (gender) => { // creamos otra funcion para hacer la media del array nuevo creado por genero metido por parametro
-    const totalScoreGender = filterGender(gender).reduce((acc, videogame) => acc + videogame.score, 0)
-    return totalScoreGender;
+    const totalScoreGender = filterGender(gender).reduce((acc, videogame) => acc + videogame.score, 0);
+    return totalScoreGender / filterGender(gender).length;
 }
 console.log(medScoreGender("RPG"))
