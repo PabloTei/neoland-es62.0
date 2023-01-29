@@ -10,10 +10,6 @@ const streamers = [
 const myInput = document.querySelector("input");
 const myButton = document.querySelector("button");
 
-myInput.addEventListener("input", (event) => {
-    streamers.filter((streamer) => (streamer.name).toLowerCase().includes((myInput.value).toLowerCase()) ? console.log(streamer.name) : 0)
-});
-
 myButton.addEventListener("click", (event) => {
-    
+    streamers.filter((streamer) => (streamer.name).toLowerCase().includes((myInput.value).toLowerCase()) ? console.log(streamer.name) : 0)
 });
