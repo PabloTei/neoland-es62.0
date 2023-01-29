@@ -6,3 +6,14 @@ const streamers = [
 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
 ];
+
+const myInput = document.querySelector("input");
+const myButton = document.querySelector("button");
+
+myInput.addEventListener("input", (event) => {
+    streamers.filter((streamer) => (streamer.name).toLowerCase().includes((myInput.value).toLowerCase()) ? console.log(streamer.name) : 0)
+});
+
+myButton.addEventListener("click", (event) => {
+    
+});
